@@ -6,6 +6,7 @@ on:
       - '**'
     paths:
       - WSL2-Linux-Kernel
+  workflow_dispatch:
 
 jobs:
 
