@@ -33,7 +33,7 @@ jobs:
     # to have the correct version baked into the kernel image in the end.
     # v5.4-rc8 is the tag right before v5.4, which is the start for our bisect.
     - name: Fetch history up to tag "v5.4-rc8"
-      run: git fetch --shallow-exclude=v5.4-rc8
+      run: git fetch --shallow-exclude=linux-msft-wsl-6.6.75.1
 
     - name: Get kernel config
       run: cp Microsoft/config-wsl .config
@@ -51,7 +51,7 @@ jobs:
     - name: Build kernel
       uses: addnab/docker-run-action@v3
       with:
-        image: carlfriedrich/wsl-kernel-build:latest
+        image: vulpicastor/wsl-kernel-build:latest
         options: |
           -v ${{ github.workspace }}:/src
           -u ${{env.UID}}:${{env.GID}}
